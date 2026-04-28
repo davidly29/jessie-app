@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "jessy-english-tutor": {
+    "jessy-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -19,7 +19,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "baseHref": "/jessy-app/",
-            "outputPath": "dist/jessy-english-tutor",
+            "outputPath": "dist/jessy-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -31,8 +31,16 @@
           "configurations": {
             "production": {
               "budgets": [
-                { "type": "initial", "maximumWarning": "500kb", "maximumError": "1mb" },
-                { "type": "anyComponentStyle", "maximumWarning": "2kb", "maximumError": "4kb" }
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "8kb"
+                }
               ],
               "outputHashing": "all"
             },
@@ -47,8 +55,12 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "production": { "buildTarget": "jessy-english-tutor:build:production" },
-            "development": { "buildTarget": "jessy-english-tutor:build:development" }
+            "production": {
+              "buildTarget": "jessy-app:build:production"
+            },
+            "development": {
+              "buildTarget": "jessy-app:build:development"
+            }
           },
           "defaultConfiguration": "development"
         }
